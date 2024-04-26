@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
-public class Wizard : MonoBehaviour
+public class Wizard : Character
 {
-    // Start is called before the first frame update
-    void Start()
+    private float damageMultiplayer;
+
+    public Wizard(float damageMultiplayer, string name) : base(name, 15, Resources.Load<Sprite>("Sprites/wizard"))
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public override float Attack()
     {
-        
+        damage *= damageMultiplayer;
+        return damage;
     }
+
+    public override float Heal() 
+    {
+        float cure;
+        Debug.Log("Wizard se cura");
+        cure = Random.Range(damage, damage * damageMultiplayer);
+        health += cure;
+        base.Heal();
+        return cure;
+    }
+
 }
