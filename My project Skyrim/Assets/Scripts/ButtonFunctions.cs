@@ -16,7 +16,7 @@ public class ButtonFunctions : MonoBehaviour
     }
 
     public void SetName() {
-        FindObjectOfType<TMP_InputField>().textViewport.value;
+        GameManager.instance.SetName(FindObjectOfType<TMP_InputField>().text);
     }
 
 }
