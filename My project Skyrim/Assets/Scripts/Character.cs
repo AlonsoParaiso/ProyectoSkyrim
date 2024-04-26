@@ -6,7 +6,7 @@ public abstract class Character
 {
     private string name;
     private Sprite _sprite;
-    public float health;
+    public float health=100;
     protected float damage;
 
 
