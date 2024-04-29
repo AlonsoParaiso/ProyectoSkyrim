@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private float time;
     private int life;
     public Character character;
-    private string name;
+    private string _name;
     public enum GameManagerVariables { TIME, LIFE };//para facilitar el codigo
 
     private void Awake()
@@ -36,12 +36,12 @@ public class GameManager : MonoBehaviour
         return time;
     }
 
-    public void SetName(string name) 
+    public void SetName(string name)
     {
-        this.name = name;
+        this._name = name;
     }
 
-    public string GetName() { return name; }
+    public string GetName() { return _name; }
     // getter
     public int GetLife()
     {
@@ -52,10 +52,10 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        
+
     }
-    
-    public void ExitGame() 
+
+    public void ExitGame()
     {
         Debug.Log("Me cerraste wey");
         Application.Quit();
@@ -66,11 +66,11 @@ public class GameManager : MonoBehaviour
         TMP_Dropdown dropdown = FindObjectOfType<TMP_Dropdown>();
         if (dropdown.value == 0)
         {
-            character = new Cowboy(name);
+            character = new Cowboy(_name);
         }
         else if (dropdown.value == 1)
         {
-            character = new Wizard(2.5f , name);
+            character = new Wizard(2.5f, _name);
         }
     }
 
