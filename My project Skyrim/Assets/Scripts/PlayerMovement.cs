@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,18 +11,21 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D rb;
     private Vector2 dir;
+    
     // Start is called before the first frame update
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        _spriteRenderer.sprite = GameManager.instance.character.GetSprite();
     }
+        
 
     // Update is called once per frame
     void Update()
     {
-        dir = new Vector2(0, 0);
+        dir = Vector2.zero;
         // El if pregunta que que tecla estoy pulasndo para mover la basura
         if (Input.GetKey(leftKey) || Input.GetKey(KeyCode.LeftArrow))
         {
