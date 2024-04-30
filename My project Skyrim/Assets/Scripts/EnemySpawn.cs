@@ -14,7 +14,7 @@ public class EnemySpawn : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerMovement>() && Random.Range(0, 2) == 1)
+        if (collision.GetComponent<PlayerMovement>() && Random.Range(0, 2) == 1 && !collision.GetComponent<CombatController>())
         {
             //SelectCharacter();
             //Instantiate(enemy, new Vector2((, )  , Quaternion.identity);
