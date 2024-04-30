@@ -9,7 +9,7 @@ public class Wizard : Character
 
     public Wizard(float damageMultiplayer, string name) : base(name, 15, Resources.Load<Sprite>("Sprites/wizard"))
     {
-        
+        this.damageMultiplayer = damageMultiplayer;
     }
 
 

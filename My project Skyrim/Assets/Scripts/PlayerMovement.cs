@@ -50,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(speed, speed) * dir;
     }
 
+    private void OnDisable()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
 }
 
 
